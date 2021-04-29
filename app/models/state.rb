@@ -1,12 +1,12 @@
 class State < ApplicationRecord
-  def state_data
-    states_hash = State.pluck(:name, :median_household_income, :share_unemployed_seasonal, :share_population_in_metro_areas, :share_population_with_high_school_degree, :id).to_h
+  require "csv"
 
-    data = []
-    CSV.foreach("lib/seeds/state_data.csv", headers: true) do |row|
-      state_data = states_hash[row[:name]]
-      data << { state_id: state_id state: row[:state]}
-    end
-    State.import(data)
+  fields_to_insert = %w{ id state median_household_income share_unemployed_seasonal share_population_in_metro_areas share_population_with_high_school_degree }
+  rows_to_insert = []
+
+  CSV.foreach("abreviations.csv", headers: true) do |row|
+    row_to_insert = row.to_hash.select { |k, v| fields_to_insert.include?(k) }
+    rows_to_insert << row_to_insert
   end
+  State.import(rows_to_insert)
 end
