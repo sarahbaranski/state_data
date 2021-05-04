@@ -1,3 +1,2 @@
 class State < ApplicationRecord
- 
 end

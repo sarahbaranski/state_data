@@ -1,5 +1,6 @@
 class Api::StatesController < ApplicationController
   def get_states
+
     @states = State.all
     render json: { state: @states.map do |state|
       {
@@ -15,3 +16,5 @@ class Api::StatesController < ApplicationController
   # def show
   # end
 end
+
+

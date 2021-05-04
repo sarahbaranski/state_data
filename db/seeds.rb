@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 require "csv"
 
-# CSV.foreach(Rails.root.join('lib/seeds/state_data.csv'), headers: true) do |row|
-  
+
+# CSV.foreach(Rails.root.join("lib/seeds/state_data.csv"), headers: true) do |row|
+
 #   State.create({
 #     state: row[0],
 #     median_household_income: row[1],
@@ -27,3 +29,9 @@ require "csv"
 #     code: row[2],
 #   })
 # end
+
+#     share_population_with_high_school_degree: row[4],
+#   })
+# end
+
+
