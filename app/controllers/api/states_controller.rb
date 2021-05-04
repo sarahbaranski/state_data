@@ -13,8 +13,16 @@ class Api::StatesController < ApplicationController
     end}
   end
 
-  # def show
-  # end
+  def get_state
+    @state = State.find_by(state: params[:name])
+    render json: { 
+        id: @state.id,
+        name: @state.state,
+        share_unemployed_seasonal: @state.share_unemployed_seasonal,
+        share_population_in_metro_areas: @state.share_population_in_metro_areas,
+        share_population_with_high_school_degree: @state.share_population_with_high_school_degree
+     }
+  end
 end
 
 
