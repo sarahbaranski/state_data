@@ -14,7 +14,8 @@ class Api::StatesController < ApplicationController
   end
 
   def get_state
-    @state = State.find_by(state: params[:name])
+    state_abbrev = Abbreviation.find_by(code: params[:code].upcase)
+    @state = State.find_by(state: state_abbrev.state)
     render json: { 
         id: @state.id,
         name: @state.state,
