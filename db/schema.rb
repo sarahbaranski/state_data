@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_154221) do
+ActiveRecord::Schema.define(version: 2021_05_03_204758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abbreviations", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "state"
+    t.string "abbrev"
+    t.string "code"
+  end
 
   create_table "states", force: :cascade do |t|
     t.string "state"
@@ -23,7 +31,6 @@ ActiveRecord::Schema.define(version: 2021_04_29_154221) do
     t.decimal "share_population_with_high_school_degree"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "abbreviation"
   end
 
 end
