@@ -10,26 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_204811) do
-
+ActiveRecord::Schema.define(version: 2021_05_03_204758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "abbreviations", force: :cascade do |t|
-
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "state"
     t.string "abbrev"
     t.string "code"
-
-    t.string "state"
-    t.string "abbrev"
-    t.string "code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-
   end
 
   create_table "states", force: :cascade do |t|
