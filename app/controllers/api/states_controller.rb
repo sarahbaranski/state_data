@@ -8,6 +8,7 @@ class Api::StatesController < ApplicationController
                share_unemployed_seasonal: state.share_unemployed_seasonal,
                share_population_in_metro_areas: state.share_population_in_metro_areas,
                share_population_with_high_school_degree: state.share_population_with_high_school_degree,
+               abbrev: Abbreviation.find_by(state: state.state).code,
              }
            end }
   end
